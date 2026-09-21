@@ -1,0 +1,7 @@
+{% extends "base.html" %}{% block content %}
+<div class="hero"><div><h1>Assalomu alaykum! 👋</h1><p>O‘quvchilar ma’lumotlarini bir joydan boshqaring.</p></div><a class="btn" href="{{url_for('new_student')}}">＋ O‘quvchi qo‘shish</a></div>
+<div class="cards"><div class="card"><b>{{total}}</b><span>Jami o‘quvchilar</span></div><div class="card"><b>{{classes|length}}</b><span>Sinflar</span></div><div class="card"><b>☁️</b><span>Baza saqlanadi</span></div></div>
+<section class="panel"><h2>📊 Sinflar bo‘yicha</h2>{% if classes %}<div class="chips">{% for c in classes %}<span>{{c.class_name}} — {{c.c}}</span>{% endfor %}</div>{% else %}<p>Hozircha ma’lumot yo‘q.</p>{% endif %}</section>
+<section class="panel"><div class="row"><h2>🕒 So‘nggi qo‘shilganlar</h2><a href="{{url_for('students')}}">Barchasini ko‘rish →</a></div>
+<table><tr><th>F.I.Sh.</th><th>Sinf</th><th>Kasbiy qiziqish</th></tr>{% for s in recent %}<tr><td>{{s.full_name}}</td><td>{{s.class_name}}</td><td>{{s.career_interest}}</td></tr>{% else %}<tr><td colspan="3">Ma’lumot yo‘q</td></tr>{% endfor %}</table></section>
+{% endblock %}

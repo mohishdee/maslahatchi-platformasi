@@ -1,0 +1,18 @@
+{% extends "base.html" %}{% block content %}
+<div class="row"><h1>👤 {{title}}</h1><a href="{{url_for('students')}}">← Orqaga</a></div>
+<form class="form panel" method="post" enctype="multipart/form-data">
+<h2>Asosiy ma’lumotlar</h2><div class="grid">
+<label>F.I.Sh. *<input name="full_name" value="{{student.full_name or ''}}" required></label>
+<label>Tug‘ilgan sana<input type="date" name="birth_date" value="{{student.birth_date or ''}}"></label>
+<label>Sinf<input name="class_name" value="{{student.class_name or ''}}" placeholder="7-A"></label>
+<label>Manzil<input name="address" value="{{student.address or ''}}"></label>
+<label>PINFL<input name="pinfl" value="{{student.pinfl or ''}}"></label>
+<label>Passport/guvohnoma<input name="passport" value="{{student.passport or ''}}"></label>
+</div>
+<h2>👨 Ota</h2><div class="grid"><label>F.I.Sh.<input name="father_name" value="{{student.father_name or ''}}"></label><label>Telefon<input name="father_phone" value="{{student.father_phone or ''}}"></label><label>Passport ma’lumoti<input name="father_passport" value="{{student.father_passport or ''}}"></label></div>
+<h2>👩 Ona</h2><div class="grid"><label>F.I.Sh.<input name="mother_name" value="{{student.mother_name or ''}}"></label><label>Telefon<input name="mother_phone" value="{{student.mother_phone or ''}}"></label><label>Passport ma’lumoti<input name="mother_passport" value="{{student.mother_passport or ''}}"></label></div>
+<h2>🚀 Kelajak va qiziqishlar</h2><div class="grid"><label>Kasbiy qiziqishi<input name="career_interest" value="{{student.career_interest or ''}}" placeholder="IT, tibbiyot, pedagogika..."></label><label>Hujjat/sertifikat<input type="file" name="certificate_file" accept=".png,.jpg,.jpeg,.webp,.pdf"></label></div>
+<label>Izohlar<textarea name="notes">{{student.notes or ''}}</textarea></label>
+<button class="btn">💾 Saqlash</button>
+</form>
+{% endblock %}
